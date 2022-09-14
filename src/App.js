@@ -50,7 +50,6 @@ function App() {
   };
 
   const updateContact = (id, updatedContact) => {
-    setEdit(false);
     setContacts(
       contacts.map((contact) => (contact.id === id ? updatedContact : contact))
     );
@@ -81,6 +80,7 @@ function App() {
           handleSearch={handleSearch}
           clearSearch={clearSearch}
           filteredContacts={filteredContacts}
+          setEdit={setEdit}
         />
         <Routes>
           <Route
@@ -102,7 +102,12 @@ function App() {
           <Route
             path="/detail/:id"
             element={
-              <Detail contacts={contacts} updateContact={updateContact} />
+              <Detail
+                contacts={contacts}
+                updateContact={updateContact}
+                edit={edit}
+                setEdit={setEdit}
+              />
             }
           />
         </Routes>

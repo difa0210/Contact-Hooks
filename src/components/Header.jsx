@@ -10,6 +10,7 @@ const Header = (props) => {
         onClick={() => {
           navigate("/");
           props.clearSearch();
+          props.setEdit(false);
         }}
         className="flex items-center gap-2 px-4 text-2xl font-medium rounded-full"
       >

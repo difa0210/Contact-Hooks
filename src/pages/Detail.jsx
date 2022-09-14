@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import EditForm from "../components/EditForm";
+import Form from "../components/Form";
 
 const Detail = (props) => {
   const { id } = useParams();
@@ -16,11 +16,12 @@ const Detail = (props) => {
           <p>{contact.phone}</p>
         </div>
       </div>
-      <EditForm
+      <Form
         edit={props.edit}
         setEdit={props.setEdit}
         currentContact={contact}
         updateContact={props.updateContact}
+        params={id}
       />
     </div>
   );

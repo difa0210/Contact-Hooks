@@ -21,6 +21,7 @@ const Table = (props) => {
                 className="px-4 py-2 cursor-pointer"
                 onClick={() => {
                   navigate(`/detail/${contact.id}`);
+                  props.editContact(contact);
                 }}
               >
                 {contact.name}

@@ -51,9 +51,7 @@ const Form = (props) => {
         <button
           className="px-4 py-2 mt-6 text-sm font-medium text-white bg-blue-500 rounded-full"
           onClick={() => {
-            if (props.edit === true) {
-              props.setEdit(false);
-            }
+            props.params ? props.setEdit(true) : props.setEdit(false);
           }}
         >
           {props.edit ? "Update contact" : "Add contact"}
@@ -61,7 +59,7 @@ const Form = (props) => {
         {props.edit ? (
           <button
             className="px-4 py-2 mt-6 text-sm font-medium text-white bg-red-500 rounded-full"
-            onClick={() => props.setEditing(false)}
+            onClick={() => props.setEdit(false)}
           >
             Cancel
           </button>
