@@ -22,6 +22,7 @@ const Detail = (props) => {
         currentContact={contact}
         updateContact={props.updateContact}
         params={id}
+        initialContactsState={props.initialContactsState}
       />
     </div>
   );

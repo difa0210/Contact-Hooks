@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
 
 const Form = (props) => {
-  const initialFormState = { id: null, name: "", phone: "" };
-  const [contact, setContact] = useState(initialFormState);
+  const [contact, setContact] = useState(props.initialContactsState);
   const [form, setForm] = useState(props.currentContact);
 
-  const handleInputChange = (e) => {
+  const handleInputChangeAdd = (e) => {
     const { name, value } = e.target;
     setContact({ ...contact, [name]: value });
   };
 
-  const handleInputChange2 = (e) => {
+  const handleInputChangeUpdate = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
@@ -28,7 +27,7 @@ const Form = (props) => {
 
         if (!contact.name || !contact.phone) return;
         props.addContact(contact);
-        setContact(initialFormState);
+        setContact(props.initialContactsState);
       }}
     >
       <label className="mb-2 font-bold">Name</label>
@@ -36,16 +35,16 @@ const Form = (props) => {
         className="flex items-center w-full h-full px-4 py-2 mb-4 placeholder-current bg-gray-100 rounded-full outline-none cursor-pointer"
         type="text"
         name="name"
-        value={props.edit ? form.name : contact.name}
-        onChange={props.edit ? handleInputChange2 : handleInputChange}
+        value={props.edit ? form?.name : contact?.name}
+        onChange={props.edit ? handleInputChangeUpdate : handleInputChangeAdd}
       />
       <label className="mb-2 font-bold">Phone</label>
       <input
         className="flex items-center w-full h-full px-4 py-2 placeholder-current bg-gray-100 rounded-full outline-none cursor-pointer"
         type="number"
         name="phone"
-        value={props.edit ? form.phone : contact.phone}
-        onChange={props.edit ? handleInputChange2 : handleInputChange}
+        value={props.edit ? form?.phone : contact?.phone}
+        onChange={props.edit ? handleInputChangeUpdate : handleInputChangeAdd}
       />
       <div className="flex gap-3">
         <button

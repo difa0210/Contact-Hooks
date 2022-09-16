@@ -1,14 +1,12 @@
 import React from "react";
 import { IoSearch } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
 
 const Header = (props) => {
-  const navigate = useNavigate();
   return (
     <div className="flex items-center gap-6 py-3 mt-4 mb-8 bg-blue-100">
       <button
         onClick={() => {
-          navigate("/");
+          props.navigate("/");
           props.clearSearch();
           props.setEdit(false);
         }}
@@ -41,7 +39,7 @@ const Header = (props) => {
                   className="flex items-center gap-2 p-2 mb-3 cursor-pointer rounded-xl hover:bg-gray-200"
                   key={contact.id}
                   onClick={() => {
-                    navigate(`/detail/${contact.id}`);
+                    props.navigate(`/detail/${contact.id}`);
                     props.clearSearch();
                   }}
                 >

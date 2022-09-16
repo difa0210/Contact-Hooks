@@ -9,6 +9,7 @@ const Home = (props) => {
           contacts={props.contacts}
           deleteContact={props.deleteContact}
           editContact={props.editContact}
+          navigate={props.navigate}
         />
       </div>
       <div className="flex flex-col w-1/3 gap-6">
@@ -18,6 +19,7 @@ const Home = (props) => {
           setEdit={props.setEdit}
           currentContact={props.currentContact}
           updateContact={props.updateContact}
+          initialContactsState={props.initialContactsState}
         />
       </div>
     </div>

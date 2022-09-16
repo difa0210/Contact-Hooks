@@ -1,9 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const Table = (props) => {
-  const navigate = useNavigate();
-
   return (
     <table className="w-full table-auto">
       <thead>
@@ -20,7 +17,7 @@ const Table = (props) => {
               <td
                 className="px-4 py-2 cursor-pointer"
                 onClick={() => {
-                  navigate(`/detail/${contact.id}`);
+                  props.navigate(`/detail/${contact.id}`);
                   props.editContact(contact);
                 }}
               >
