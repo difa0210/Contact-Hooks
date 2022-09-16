@@ -44,6 +44,12 @@ function Root() {
 
   const deleteContact = (id) => {
     setContacts(contacts.filter((contact) => contact.id !== id));
+    contacts.map((contact) => {
+      if (contact.id > id) {
+        contact.id = contact.id - 1;
+      }
+      return contacts;
+    });
   };
 
   const editContact = (contact) => {
@@ -77,120 +83,6 @@ function Root() {
     setSearch("");
     setFilteredContacts([]);
   };
-
-  //HackerRank
-
-  // const simpleArraysum = (ar) => {
-  //   let sum = 0;
-  //   for (let i = 0; i < ar.length; i++) {
-  //     sum += ar[i];
-  //   }
-  //   return sum;
-  // };
-
-  // console.log("simpleArraySum:", simpleArraysum([1, 2, 3, 4, 10, 11]));
-
-  // const solveMeFirst = (a, b) => {
-  //   return a + b;
-  // };
-
-  // console.log("solveMeFirst:", solveMeFirst(2, 3));
-
-  // const compareTriplets = (a, b) => {
-  //   let alice = 0;
-  //   let bob = 0;
-  //   for (let i = 0; i < a.length; i++) {
-  //     if (a[i] > b[i]) {
-  //       alice++;
-  //     } else if (a[i] < b[i]) {
-  //       bob++;
-  //     }
-  //   }
-  //   return [alice, bob];
-  // };
-
-  // console.log("compareTriplets:", compareTriplets([5, 6, 7], [3, 6, 10]));
-
-  // const aVeryBigSum = (ar) => {
-  //   let sum = 0;
-  //   for (let i = 0; i < ar.length; i++) {
-  //     sum += ar[i];
-  //   }
-  //   return sum;
-  // };
-
-  // console.log(
-  //   "aVeryBigSum:",
-  //   aVeryBigSum([1000000001, 1000000002, 1000000003, 1000000004, 1000000005])
-  // );
-
-  // const diagonalDifference = (arr) => {
-  //   let sum1 = 0;
-  //   let sum2 = 0;
-  //   for (let i = 0; i < arr.length; i++) {
-  //     sum1 += arr[i][i];
-  //     sum2 += arr[i][arr.length - 1 - i];
-  //   }
-  //   return Math.abs(sum1 - sum2);
-  // };
-
-  // console.log(
-  //   "diagonalDifference:",
-  //   diagonalDifference([
-  //     [11, 2, 3],
-  //     [4, 5, 6],
-  //     [10, 8, -12],
-  //   ])
-  // );
-
-  // const plusMinus = (arr) => {
-  //   let positive = 0;
-  //   let negative = 0;
-  //   let zero = 0;
-  //   for (let i = 0; i < arr.length; i++) {
-  //     if (arr[i] > 0) {
-  //       positive++;
-  //     } else if (arr[i] < 0) {
-  //       negative++;
-  //     } else {
-  //       zero++;
-  //     }
-  //   }
-  //   let positiveRatio = positive / arr.length;
-  //   let negativeRatio = negative / arr.length;
-  //   let zeroRatio = zero / arr.length;
-
-  //   return { ...[positiveRatio, negativeRatio, zeroRatio] };
-  // };
-
-  // console.log("plusMinus:", plusMinus([-4, 3, -9, 0, 4, 1]));
-
-  // const staircase = (n) => {
-  //   for (let i = 1; i <= n; i++) {
-  //     console.log(" ".repeat(n - i) + "#".repeat(i));
-  //   }
-  // };
-
-  // console.log("staircase:", staircase(6));
-
-  // const miniMaxSum = (arr) => {
-  //   let min = arr[0];
-  //   let max = arr[0];
-  //   let sum = 0;
-  //   for (let i = 0; i < arr.length; i++) {
-  //     if (arr[i] < min) {
-  //       min = arr[i];
-  //     }
-  //     if (arr[i] > max) {
-  //       max = arr[i];
-  //     }
-  //     sum += arr[i];
-  //   }
-  //   console.log("min:", min, "max:", max, "sum:", sum, "arr[0]:", arr[0]);
-  //   return { ...[sum - max, sum - min] };
-  // };
-
-  // console.log("miniMaxSum:", miniMaxSum([1, 2, 3, 4, 5]));
 
   return (
     <div className="container mx-auto">
