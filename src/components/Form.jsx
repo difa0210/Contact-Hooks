@@ -48,7 +48,6 @@ const Form = (props) => {
           />
         </div>
       ))}
-
       <div className="flex gap-3">
         <button
           className="px-4 py-2 mt-6 text-sm font-medium text-white bg-blue-500 rounded-full"
