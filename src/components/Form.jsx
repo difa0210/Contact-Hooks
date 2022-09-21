@@ -18,6 +18,8 @@ const Form = (props) => {
     setForm({ ...form, [name]: value });
   };
 
+  console.log("form", form, "contact", contact);
+
   useEffect(() => {
     setForm(props.currentContact);
   }, [props]);
@@ -29,7 +31,13 @@ const Form = (props) => {
         e.preventDefault();
         props.updateContact(form.id, form);
 
-        if (!contact.name || !contact.phone) return;
+        if (
+          !contact.name ||
+          !contact.gender ||
+          !contact.phone ||
+          !contact.birthday
+        )
+          return;
         props.addContact(contact);
         setContact(props.initialContactsState);
       }}
@@ -48,6 +56,26 @@ const Form = (props) => {
           />
         </div>
       ))}
+      <div className="flex flex-col items-start w-full">
+        <label className="mb-2 font-bold">GENDER</label>
+        <select
+          className="flex items-center w-full h-full px-4 py-2 mb-4 placeholder-current bg-gray-100 rounded-full outline-none cursor-pointer"
+          name="gender"
+          value={props.edit ? form.gender : contact.gender}
+          onChange={props.edit ? handleInputChangeUpdate : handleInputChangeAdd}
+        >
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+
+        <label className="mb-2 font-bold">BIRTHDAY</label>
+        <input
+          type="date"
+          name="birthday"
+          value={props.edit ? form.birthday : contact.birthday}
+          onChange={props.edit ? handleInputChangeUpdate : handleInputChangeAdd}
+        />
+      </div>
       <div className="flex gap-3">
         <button
           className="px-4 py-2 mt-6 text-sm font-medium text-white bg-blue-500 rounded-full"

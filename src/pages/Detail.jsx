@@ -1,10 +1,10 @@
+/* eslint-disable eqeqeq */
 import React from "react";
 import { useParams } from "react-router-dom";
 import Form from "../components/Form";
 
 const Detail = (props) => {
   const { id } = useParams();
-  // eslint-disable-next-line eqeqeq
   const contact = props.contacts.find((contact) => contact.id == id);
 
   return (

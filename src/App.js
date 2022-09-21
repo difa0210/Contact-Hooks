@@ -15,19 +15,25 @@ function Root() {
     {
       id: 1,
       name: "John Doe",
+      gender: "Male",
       phone: "088464216545",
+      birthday: "1999-11-19",
     },
     {
       id: 2,
       name: "Jane Doe",
+      gender: "Female",
       phone: "088464216545",
+      birthday: "1998-09-19",
     },
   ];
 
   const initialContactsState = {
     id: null,
     name: "",
+    gender: "Male",
     phone: "",
+    birthday: new Date(),
   };
 
   const [contacts, setContacts] = useState(initialContacts);
@@ -57,7 +63,9 @@ function Root() {
     setCurrentContact({
       id: contact.id,
       name: contact.name,
+      gender: contact.gender,
       phone: contact.phone,
+      birthday: contact.birthday,
     });
   };
 
